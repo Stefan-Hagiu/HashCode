@@ -2,7 +2,12 @@ import java.util.ArrayList;
 
 public class Picker {
 
-	public static int best(Car car, ArrayList<JobDataStructure> rides) {
+  public boolean wasBonus;
+
+  public Picker(){
+  }
+
+	public int best(Car car, ArrayList<JobDataStructure> rides) {
 		double max = 0;
 		int pick = -1;
 		double score = 0;
@@ -13,10 +18,11 @@ public class Picker {
 				pick = rideIndex;
 			}
 		}
+    this.wasBonus = max > 1;
 		return pick;
 	}
 
-	public static double gain(Car car, JobDataStructure ride) {
+	public double gain(Car car, JobDataStructure ride) {
 		int arrivalT, destinationT;
 		double score = 0;
 
