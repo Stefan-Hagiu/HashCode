@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Picker {
 
 	public static int best(Car car, ArrayList<JobDataStructure> rides) {
-		double max = -1;
+		double max = 0;
 		int pick = -1;
 		double score = 0;
 		for (int rideIndex = 0; rideIndex < rides.size(); rideIndex++) {
