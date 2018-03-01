@@ -10,7 +10,7 @@ public class Main {
 		InputReader.read(args[0]);
 
 		try {
-			OutputWriter.out = new PrintWriter("output.txt");
+			OutputWriter.out = new PrintWriter(args[0] + ".out");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
