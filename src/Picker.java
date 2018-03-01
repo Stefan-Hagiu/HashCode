@@ -2,12 +2,7 @@ import java.util.ArrayList;
 
 public class Picker {
 
-  public boolean wasBonus;
-
-  public Picker(){
-  }
-
-	public int best(Car car, ArrayList<JobDataStructure> rides) {
+	public static int best(Car car, ArrayList<JobDataStructure> rides) {
 		double max = 0;
 		int pick = -1;
 		double score = 0;
@@ -18,11 +13,10 @@ public class Picker {
 				pick = rideIndex;
 			}
 		}
-    this.wasBonus = max > 1;
 		return pick;
 	}
 
-	public double gain(Car car, JobDataStructure ride) {
+	public static double gain(Car car, JobDataStructure ride) {
 		int arrivalT, destinationT;
 		double score = 0;
 
@@ -32,7 +26,7 @@ public class Picker {
 			return 0;
 		}
 		if (arrivalT <= ride.earliestStart) {
-			score = GlobalVariables.bonus;
+			score = 0.5 * GlobalVariables.bonus;
 		}
 		score = score + ride.totalDistance;
 		return score / (destinationT - car.time);
