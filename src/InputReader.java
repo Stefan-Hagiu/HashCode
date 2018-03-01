@@ -14,7 +14,7 @@ public class InputReader {
 
 		for (int i = 0; i < GlobalVariables.numberOfJobs; i++) {
 			GlobalVariables.listOfJobs.add(new JobDataStructure(sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.nextInt(),
-					sc.nextInt(), sc.nextInt()));
+					sc.nextInt(), sc.nextInt(), i));
 		}
 	}
 
