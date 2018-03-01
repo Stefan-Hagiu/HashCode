@@ -1,42 +1,36 @@
-ride: stpos sfpos stc sfc
+import java.util.ArrayList;
 
+public class Picker {
 
-
-
-car: pos T
-
-best(car, rides)
-{
-  max = -1;
-  pick = -1;
-  for(ride in rides)
-  {
-    score = gain(ride);
-    if(score > max)
+  public static int best(Car car, ArrayList<JobDataStructure> rides) {
+    int max = -1;
+    int pick = -1;
+    for(rideIndex = 0; rideIndex < rides.size(); rideIndex++)
     {
-      score = max;
-      pick = ride;
+      score = gain(car, rides[rideIndex]);
+      if(score > max)
+      {
+        max = score;
+        pick = rideIndex;
+      }
     }
+    return pick;
   }
-  return tuple(score, pick);
-}
 
-gain(car, ride)
-{
-  arrivalT = T + dist(stpos, pos);
-  destinationT = dist(sfpos, stpos);
-  if(destinationT > sfc)
+  gain(Car car, JobDataStructure ride)
   {
-    return 0;
+    int arrivalT = car.time + Math.abs(car.posx - ride.startingX) + Math.abs(car.posy - ride.startingY);
+    destinationT = Math.max(arrivalT, ride.earliestStart) + ride.totalDistance;
+    if(destinationT > ride.latestFinish)
+    {
+      return 0;
+    }
+    if(arrivalT <= ride.earliestStart)
+    {
+      score = GlobalVariables.bonus;
+    }
+    score = score + ride.totalDistance;
+    return score / (destinationT - car.time);
   }
-  if(arrivalT == stc)
-  {
-    score = g_bonus + best(car, rides)
-  }
-  rides.remove(ride);
-  auxpos = car.pos;
-  car.pos = sfpos;
-  score = score + dist(sfpos, stpos) + best(car, rides);
-  cat.pos = auxpos;
-  rides.add(ride);
+
 }
