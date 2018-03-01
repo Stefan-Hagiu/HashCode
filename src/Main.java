@@ -15,7 +15,20 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		OutputWriter.write(args[1]);
+
+		for (int i = 0; i < GlobalVariables.numberOfVehicles; i++) {
+			Car car = new Car(i);
+			while (true) {
+				int pick = Picker.best(car, GlobalVariables.listOfJobs);
+				if (pick == -1) {
+					break;
+				} else {
+					car.schedule(GlobalVariables.listOfJobs.get(pick));
+					GlobalVariables.listOfJobs.remove(pick);
+				}
+			}
+			// print car :)
+		}
 	}
 
 }
