@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class InputReader {
 
-	public void read() {
-		Scanner sc = new Scanner(System.in);
+	public static void read(String fileName) {
+		Scanner sc = new Scanner(fileName);
 
 		GlobalVariables.maxX = sc.nextInt();
 		GlobalVariables.maxY = sc.nextInt();
