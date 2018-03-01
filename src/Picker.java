@@ -18,7 +18,7 @@ public class Picker {
 
 	public static double gain(Car car, JobDataStructure ride) {
 		int arrivalT, destinationT;
-		int score = 0;
+		double score = 0;
 
 		arrivalT = car.time + Math.abs(car.posx - ride.startingX) + Math.abs(car.posy - ride.startingY);
 		destinationT = Math.max(arrivalT, ride.earliestStart) + ride.totalDistance;
