@@ -13,6 +13,7 @@ public class Car {
 		this.posx = 0;
 		this.posy = 0;
 		this.time = 0;
+    this.orders = new ArrayList<JobDataStructure>();
 	}
 
 	public void schedule(JobDataStructure r) {
