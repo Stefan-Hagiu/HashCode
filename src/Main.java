@@ -27,8 +27,10 @@ public class Main {
 					GlobalVariables.listOfJobs.remove(pick);
 				}
 			}
-			// print car :)
+			OutputWriter.write(car.orders);
 		}
+
+		OutputWriter.out.close();
 	}
 
 }
