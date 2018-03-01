@@ -7,7 +7,7 @@ public class Main {
 		if (args.length != 1) {
 			System.exit(1);
 		}
-		InputReader.read(args[0]);
+		InputReader.read(args[0] + ".in");
 
 		try {
 			OutputWriter.out = new PrintWriter(args[0] + ".out");
